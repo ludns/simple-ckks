@@ -13,16 +13,17 @@ int main() {
     printf("================================\n");
 
     try {
-        // Define parameters for CKKS
-        vector<uint64_t> primes = {576460752308273153, 576460752315482113, 576460752319021057, 576460752319414273, 576460752321642497, 576460752325705729, 576460752328327169, 576460752329113601, 576460752329506817, 576460752329900033, 576460752331210753, 576460752337502209, 576460752340123649, 576460752342876161};
-        vector<uint64_t> special_primes = {0x20000001a0001, 0x20000005e0001, 0x2000000860001, 0x2000000b00001};
+        // Define parameters for CKKS (similar to GPU library but with ring size 2^16)
+        // Initial 42-bit prime, followed by 24 41-bit primes
+        vector<uint64_t> primes = {2199028891649, 1099512938497, 1099515691009, 1099516870657, 1099521458177, 1099522375681, 1099523555329, 1099525128193, 1099526176769, 1099529060353, 1099535220737, 1099536138241, 1099537580033, 1099538104321, 1099540725761, 1099540856833, 1099543085057, 1099544002561, 1099544395777, 1099548327937, 1099550556161, 1099551080449, 1099553308673, 1099556192257, 1099557765121};
+        vector<uint64_t> special_primes = {2199028891649, 2199030071297, 2199031382017};
 
         uint64_t poly_degree = 65536;
-        double scale = 1ULL << 40;
+        double scale = 1ULL << 41;  // Scale is 2^41 for 41 bits of precision
 
         printf("Parameters:\n");
         printf("  Polynomial degree: %llu\n", (unsigned long long)poly_degree);
-        printf("  Scale: 2^40\n");
+        printf("  Scale: 2^41\n");
         printf("  Number of primes: %zu\n", primes.size());
 
         // Initialize parameters
