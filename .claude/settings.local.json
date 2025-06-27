@@ -12,7 +12,9 @@
       "Bash(scp:*)",
       "Bash(ssh:*)",
       "Bash(aarch64-unknown-linux-gnu-gcc:*)",
-      "Bash(./build.sh)"
+      "Bash(./build.sh)",
+      "Bash(g++:*)",
+      "Bash(./tools/find_primes)"
     ],
     "deny": []
   }
