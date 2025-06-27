@@ -1,0 +1,5 @@
+if(EXISTS "/Users/ludens/dev/gp/simple-ckks/build-arm/tests[1]_tests.cmake")
+  include("/Users/ludens/dev/gp/simple-ckks/build-arm/tests[1]_tests.cmake")
+else()
+  add_test(tests_NOT_BUILT tests_NOT_BUILT)
+endif()

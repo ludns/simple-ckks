@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
-#include "smkhe/encoder.h"
-#include "smkhe/math/ntt_transformer.h"
-#include "smkhe/util.h"
+#include "simple_ckks/encoder.h"
+#include "simple_ckks/math/ntt_transformer.h"
+#include "simple_ckks/util.h"
 #include <random>
 
 #define SEED 1231121
@@ -9,7 +9,7 @@
 #define MULT_NUMBER_COEFFS 2048
 
 using namespace std;
-using namespace smkhe;
+using namespace simple_ckks;
 
 vector<uint64_t> predefinedBigPrimes = {1152921504606748673, 576460752308273153, 576460752302473217,
                                         576460752304439297};

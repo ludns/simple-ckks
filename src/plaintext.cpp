@@ -1,6 +1,6 @@
-#include "smkhe/plaintext.h"
+#include "simple_ckks/plaintext.h"
 
-namespace smkhe {
+namespace simple_ckks {
     Plaintext::Plaintext(vector<vector<uint64_t>> &givenCoefficients, Parameters &parameters) : parameters(parameters),
                                                                                                 currentLevel(
                                                                                                         parameters.getPrimes().size() -

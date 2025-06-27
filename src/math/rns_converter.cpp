@@ -1,6 +1,6 @@
-#include "smkhe/math/rns_converter.h"
+#include "simple_ckks/math/rns_converter.h"
 
-namespace smkhe {
+namespace simple_ckks {
     RNSConverter::RNSConverter(Parameters &params) : params(params), qPerLevel(params.getModulusLevels()),
                                                      crtTransformation(params.getModulusLevels(),
                                                                        vector<BigInt>(params.getModulusLevels())) {

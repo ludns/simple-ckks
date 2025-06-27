@@ -1,6 +1,6 @@
-#include "smkhe/rand_util.h"
+#include "simple_ckks/rand_util.h"
 
-namespace smkhe {
+namespace simple_ckks {
     uint64_t getRandom(uint64_t end) {
         static random_device rd;
         static mt19937 generator(rd());

@@ -1,9 +1,8 @@
-#include "smkhe/math/ntt_transformer.h"
+#include "simple_ckks/math/ntt_transformer.h"
+#include <cstdlib>
 #include <numeric>
-#include <random>
-#include <cmath>
 
-namespace smkhe {
+namespace simple_ckks {
     uint64_t pollardF(uint64_t number, uint64_t constant, uint64_t mod) {
         number = fastExp(number, 2, mod);
         number = (number + constant) % mod;

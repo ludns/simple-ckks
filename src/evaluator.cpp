@@ -1,6 +1,6 @@
-#include "smkhe/evaluator.h"
+#include "simple_ckks/evaluator.h"
 
-namespace smkhe {
+namespace simple_ckks {
     Evaluator::Evaluator(Parameters params, EvaluationKey evk) : params(params), evk(evk),
                                                                  rnsTransformer(params.getSpecialPrimes(),
                                                                                 params.getPrimes()) {}

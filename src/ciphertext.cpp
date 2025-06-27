@@ -1,7 +1,6 @@
-#include "smkhe/ciphertext.h"
-#include "smkhe/serializer_util.h"
+#include "simple_ckks/ciphertext.h"
 
-namespace smkhe {
+namespace simple_ckks {
     Ciphertext::Ciphertext(int level, vector<Polynomial<uint64_t>> polysA, vector<Polynomial<uint64_t>> polysB) : level(
             level), polysA(polysA), polysB(polysB) {}
 
@@ -41,35 +40,4 @@ namespace smkhe {
 
     Ciphertext::Ciphertext() : level(0) {}
 
-    void Ciphertext::serialize(string &givenString) {
-        CiphertextSerializer serializer;
-        serializer.set_level(level);
-
-        for (auto &polyA: polysA) {
-            serializer.add_polysa()->CopyFrom(serializePolynomial(polyA));
-        }
-        for (auto &polyB: polysB) {
-            serializer.add_polysb()->CopyFrom(serializePolynomial(polyB));
-        }
-
-        serializer.SerializeToString(&givenString);
-    }
-
-    void Ciphertext::deserialize(string &givenString) {
-        CiphertextSerializer serializer;
-        serializer.ParseFromString(givenString);
-
-        level = serializer.level();
-        polysA.clear();
-        polysB.clear();
-        polysA.resize(serializer.polysa_size());
-        polysB.resize(serializer.polysb_size());
-
-        for (int index = 0; index < polysA.size(); ++index) {
-            parsePolynomial(serializer.polysa(index), polysA[index]);
-        }
-        for (int index = 0; index < polysB.size(); ++index) {
-            parsePolynomial(serializer.polysb(index), polysB[index]);
-        }
-    }
 }

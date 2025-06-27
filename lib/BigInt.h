@@ -1,5 +1,5 @@
-#ifndef SMKHE_BIGINT_H
-#define SMKHE_BIGINT_H
+#ifndef simple_ckks_BIGINT_H
+#define simple_ckks_BIGINT_H
 
 #include <iostream>
 
@@ -97,4 +97,4 @@ public:
     friend BigInt big_random(size_t);
 };
 
-#endif //SMKHE_BIGINT_H
+#endif //simple_ckks_BIGINT_H

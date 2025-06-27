@@ -1,16 +1,16 @@
 #include "gtest/gtest.h"
-#include "smkhe/encoder.h"
-#include "smkhe/keygen.h"
-#include "smkhe/evaluation_key.h"
-#include "smkhe/encryptor.h"
-#include "smkhe/evaluator.h"
+#include "simple_ckks/encoder.h"
+#include "simple_ckks/keygen.h"
+#include "simple_ckks/evaluation_key.h"
+#include "simple_ckks/encryptor.h"
+#include "simple_ckks/evaluator.h"
 #include <random>
 
 #define SEED 1231121
 #define PRIMES {1152921504606748673, 576460752308273153, 576460752302473217}
 #define SPECIAL_PRIMES {0x7fffffffe0001, 0x80000001c0001, 0x80000002c0001, 0x7ffffffd20001}
 using namespace std;
-using namespace smkhe;
+using namespace simple_ckks;
 
 Parameters parametersEval((1ULL << 59), 16384, PRIMES, SPECIAL_PRIMES);
 Encoder encEval(parametersEval);

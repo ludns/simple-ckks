@@ -1,6 +1,6 @@
-#include "smkhe/parameters.h"
+#include "simple_ckks/parameters.h"
 
-namespace smkhe {
+namespace simple_ckks {
     Parameters::Parameters(uint64_t scale, int ringDegree, vector<uint64_t> qPrimes, vector<uint64_t> pPrimes) : scale(
             scale), ringDegree(ringDegree),
                                                                                                                  qPrimes(qPrimes),

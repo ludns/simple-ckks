@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cmake:*)",
+      "Bash(mkdir:*)",
+      "Bash(ls:*)",
+      "Bash(make:*)",
+      "Bash(grep:*)",
+      "Bash(rm:*)",
+      "Bash(./ckks_demo)",
+      "Bash(chmod:*)",
+      "Bash(scp:*)",
+      "Bash(ssh:*)",
+      "Bash(aarch64-unknown-linux-gnu-gcc:*)",
+      "Bash(./build.sh)"
+    ],
+    "deny": []
+  }
+}

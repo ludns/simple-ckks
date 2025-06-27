@@ -1,11 +1,11 @@
 #include "gtest/gtest.h"
-#include "smkhe/encoder.h"
+#include "simple_ckks/encoder.h"
 #include <random>
 
 #define SEED 1231121
 #define BIG_PRIME 1152921504606748673
 using namespace std;
-using namespace smkhe;
+using namespace simple_ckks;
 
 vector<double> generateDoubles(int number) {
     vector<double> result(number);

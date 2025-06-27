@@ -1,7 +1,6 @@
-#include "smkhe/math/rns_transformer.h"
-#include "iostream"
+#include "simple_ckks/math/rns_transformer.h"
 
-namespace smkhe {
+namespace simple_ckks {
     RNSTransformer::RNSTransformer(vector<uint64_t> pPrimes, vector<uint64_t> qPrimes) : numberPrimesP(pPrimes.size()),
                                                                                          numberPrimesQ(qPrimes.size()),
                                                                                          primesP(pPrimes),

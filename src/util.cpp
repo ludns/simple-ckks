@@ -1,6 +1,6 @@
-#include "smkhe/util.h"
+#include "simple_ckks/util.h"
 
-namespace smkhe {
+namespace simple_ckks {
     uint64_t modMultiply(uint64_t a, uint64_t b, uint64_t mod) {
         uint64_t result = 0;
 

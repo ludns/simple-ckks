@@ -1,7 +1,9 @@
-#include "smkhe/math/polynomial.h"
-#include "smkhe/encryptor.h"
+#include "simple_ckks/math/polynomial.h"
+#include "simple_ckks/encryptor.h"
+#include "simple_ckks/rand_util.h"
+#include "simple_ckks/util.h"
 
-namespace smkhe {
+namespace simple_ckks {
     Encryptor::Encryptor(Parameters params) : params(params) {}
 
     Ciphertext Encryptor::encrypt(Plaintext &plain, PublicKey &pub) {

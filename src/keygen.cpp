@@ -1,7 +1,6 @@
-#include <random>
-#include "smkhe/keygen.h"
+#include "simple_ckks/keygen.h"
 
-namespace smkhe {
+namespace simple_ckks {
     Keygen::Keygen(Parameters params) : params(params),
                                         secretKey(params.getModulusLevels(), params.getSpecialPrimesNumber(),
                                                   params.getRingDegree()), secretKeyAttached(false) {}

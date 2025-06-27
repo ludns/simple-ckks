@@ -1,13 +1,13 @@
 #include "gtest/gtest.h"
-#include "smkhe/encoder.h"
-#include "smkhe/encryptor.h"
-#include "smkhe/keygen.h"
+#include "simple_ckks/encoder.h"
+#include "simple_ckks/encryptor.h"
+#include "simple_ckks/keygen.h"
 #include <random>
 
 #define SEED 9993211
 #define BIG_PRIME 1152921504606748673
 using namespace std;
-using namespace smkhe;
+using namespace simple_ckks;
 
 Parameters parameters(pow(2.0, 40), 16384, {BIG_PRIME}, {BIG_PRIME});
 Encoder enc(parameters);

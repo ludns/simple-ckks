@@ -1,9 +1,9 @@
-#include "smkhe/encoder.h"
+#include "simple_ckks/encoder.h"
 #include <vector>
 #include <random>
 #include <cmath>
 
-namespace smkhe {
+namespace simple_ckks {
     void randomRound(complex<double> &realCoeffs) {
         static random_device rd;
         static mt19937 generator(rd());
