@@ -4,15 +4,7 @@ A lightweight C++ implementation of the CKKS (Cheon-Kim-Kim-Song) homomorphic en
 
 ## Overview
 
-This library provides a clean, efficient implementation of CKKS homomorphic encryption, allowing you to perform computations on encrypted data. The implementation has been simplified by removing protobuf dependencies and multi-key functionality to reduce complexity and improve performance on embedded systems.
-
-## Features
-
-- **CKKS Encryption**: Full implementation of the CKKS scheme for approximate arithmetic on encrypted data
-- **Cross-Platform**: Builds on macOS, Linux, and ARM embedded systems
-- **Embedded-Friendly**: Optimized for resource-constrained environments
-- **No External Dependencies**: Removed protobuf requirements for easier deployment
-- **Simple API**: Clean, easy-to-use interface for encryption operations
+This library provides a clean, efficient implementation of CKKS homomorphic encryption, allowing you to perform computations on encrypted data. This implements the full RNS version of CKKS.
 
 ## Project Structure
 
@@ -60,13 +52,13 @@ This will create a `build/` directory with:
 ./build-arm.sh
 ```
 
-This creates a `build-arm/` directory with the ARM64 binary `ckks_demo`.
+This creates a `build-arm/` directory with the NXP ARM64 Cortex A35 binary `ckks_demo`.
 
 ### Build Scripts
 
 - `./build.sh` - Full native build
 - `./build-arm.sh` - Full ARM cross-compilation
-- `./quick-build-arm.sh` - Fast ARM rebuild (source changes only)
+- `./quick-build-arm.sh` - Fast NXP rebuild (source changes only)
 - `./clean.sh` - Remove all build artifacts
 
 ## Usage Example
@@ -146,13 +138,11 @@ The demo will output timing information for all operations, helping you optimize
 
 Key parameters that affect performance and security:
 
-- **Polynomial degree** (`poly_degree`): 4096, 8192, or 16384
-  - Lower = faster but less secure
-  - 8192 is a good balance
-  
+- **Polynomial degree** (`poly_degree`)
+
 - **Scale**: Typically 2^40
   - Affects precision of computations
-  
+
 - **Number of primes**: Affects the multiplicative depth
   - More primes = more multiplications possible
   - Also affects performance
@@ -172,26 +162,10 @@ Available test suites:
 
 ## Performance
 
-Typical performance on embedded ARM Cortex-A35:
-- Key generation: ~300ms
-- Encryption: ~200ms  
-- Homomorphic addition: ~100ms
-- Decryption: ~20ms
+Typical performance on embedded ARM Cortex-A35 with secure parameters:
+- Key generation: ~60s
+- Encryption: ~60s
+- Homomorphic addition: ~10s
+- Decryption: ~1s
 
 Performance varies based on polynomial degree and number of primes.
-
-## Recent Changes
-
-- Removed protobuf serialization dependencies
-- Removed multi-key (MK) functionality
-- Simplified API for embedded use
-- Added cross-compilation support
-- Added timing instrumentation
-
-## License
-
-[Add your license here]
-
-## Contributing
-
-[Add contribution guidelines if applicable]
