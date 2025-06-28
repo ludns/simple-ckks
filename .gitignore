@@ -11,6 +11,7 @@ CTestTestfile.cmake
 _deps
 .idea
 build/
+build-arm/
 cmake-build-debug/
 build-ios/
 .cache
