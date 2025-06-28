@@ -14,11 +14,24 @@ if ! command -v aarch64-unknown-linux-gnu-gcc &> /dev/null; then
     exit 1
 fi
 
-# Check if sysroot exists
-if [ ! -d "$HOME/dev/gp/imx-sysroot" ]; then
-    echo "Warning: Sysroot not found at $HOME/dev/gp/imx-sysroot"
-    echo "The build might fail. Make sure the sysroot path is correct."
+# Check if IMX_SYSROOT is set
+if [ -z "$IMX_SYSROOT" ]; then
+    echo "ERROR: IMX_SYSROOT environment variable is not set!"
+    echo "Please set it to the path of your i.MX sysroot:"
+    echo "  export IMX_SYSROOT=/path/to/imx-sysroot"
+    echo "Or pass it directly to cmake:"
+    echo "  cmake -B build-arm -S . -DIMX_SYSROOT=/path/to/imx-sysroot -DCMAKE_TOOLCHAIN_FILE=toolchain-aarch64.cmake"
+    exit 1
 fi
+
+# Check if sysroot exists
+if [ ! -d "$IMX_SYSROOT" ]; then
+    echo "Error: Sysroot not found at $IMX_SYSROOT"
+    echo "Please check the IMX_SYSROOT path."
+    exit 1
+fi
+
+echo "Using IMX_SYSROOT: $IMX_SYSROOT"
 
 # Clean build directory
 echo "Cleaning build-arm directory..."

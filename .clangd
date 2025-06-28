@@ -1,4 +1,4 @@
 CompileFlags:
   Add:
-    - "-I/Users/ludens/dev/gp/simple-ckks/include"
+    - "-Iinclude"
     - "-std=c++17"

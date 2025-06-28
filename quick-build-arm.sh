@@ -7,6 +7,14 @@ set -e  # Exit on error
 
 echo "=== Quick rebuild for ARM64 ==="
 
+# Check if IMX_SYSROOT is set
+if [ -z "$IMX_SYSROOT" ]; then
+    echo "ERROR: IMX_SYSROOT environment variable is not set!"
+    echo "Please set it to the path of your i.MX sysroot:"
+    echo "  export IMX_SYSROOT=/path/to/imx-sysroot"
+    exit 1
+fi
+
 # Check if build-arm exists and is configured
 if [ ! -f "build-arm/Makefile" ]; then
     echo "No Makefile found. Running full build instead..."

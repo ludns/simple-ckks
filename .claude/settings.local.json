@@ -14,7 +14,9 @@
       "Bash(aarch64-unknown-linux-gnu-gcc:*)",
       "Bash(./build.sh)",
       "Bash(g++:*)",
-      "Bash(./tools/find_primes)"
+      "Bash(./tools/find_primes)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": []
   }

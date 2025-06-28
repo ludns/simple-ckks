@@ -2,6 +2,14 @@
 
 A lightweight C++ implementation of the CKKS (Cheon-Kim-Kim-Song) homomorphic encryption scheme, optimized for embedded systems and cross-platform deployment.
 
+## Attribution
+
+This project is a fork of [smkhe](https://github.com/andru47/smkhe) with the following modifications:
+- Removed multi-key (MK) functionality for single-key use cases
+- Removed protobuf serialization
+- Optimized for benchmarking CKKS encryption on embedded boards
+- Added cross-compilation support for ARM platforms
+
 ## Overview
 
 This library provides a clean, efficient implementation of CKKS homomorphic encryption, allowing you to perform computations on encrypted data. This implements the full RNS version of CKKS.
@@ -48,11 +56,46 @@ This will create a `build/` directory with:
 
 ### ARM Cross-Compilation
 
+#### Creating the Sysroot
+
+To cross-compile, you need a sysroot from your target board. Create it by:
+
+1. SSH into your board and create a tar archive of the system libraries:
+   ```bash
+   ssh root@your-board-ip
+   tar czf /tmp/imx-sysroot.tar.gz /usr/include /usr/lib /lib
+   ```
+
+2. Copy the archive to your development machine:
+   ```bash
+   scp root@your-board-ip:/tmp/imx-sysroot.tar.gz .
+   ```
+
+3. Extract it to a directory on your development machine:
+   ```bash
+   mkdir -p ~/imx-sysroot
+   tar xzf imx-sysroot.tar.gz -C ~/imx-sysroot
+   ```
+
+4. Set the environment variable:
+   ```bash
+   export IMX_SYSROOT=~/imx-sysroot
+   ```
+
+#### Building for ARM
+
+Once you have the sysroot set up:
 ```bash
 ./build-arm.sh
 ```
 
 This creates a `build-arm/` directory with the NXP ARM64 Cortex A35 binary `ckks_demo`.
+
+Alternatively, you can pass the sysroot path directly to CMake:
+```bash
+cmake -B build-arm -S . -DIMX_SYSROOT=/path/to/imx-sysroot -DCMAKE_TOOLCHAIN_FILE=toolchain-aarch64.cmake
+make -C build-arm ckks_demo
+```
 
 ### Build Scripts
 
