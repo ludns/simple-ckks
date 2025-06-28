@@ -1,6 +1,6 @@
 # Simple CKKS
 
-A lightweight C++ implementation of the CKKS (Cheon-Kim-Kim-Song) homomorphic encryption scheme, optimized for embedded systems and cross-platform deployment.
+A lightweight C++ implementation of the CKKS (Cheon-Kim-Kim-Song) homomorphic encryption scheme, optimized for embedded systems and cross-platform deployment. Implemented with full-RNS. No bootstrapping. ~1.2k lines of code and quite readable.
 
 ## Attribution
 
